@@ -1,7 +1,8 @@
 
-import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
+import { Component, ViewChild } from '@angular/core';
+import { Content } from 'ionic-angular';
 
 import { Starwars} from '../../providers/starwars/starwars';
 
@@ -10,6 +11,7 @@ import { Starwars} from '../../providers/starwars/starwars';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  @ViewChild(Content) content: Content;
   public obj: any;
   public heroes: any;
   dados: any;
@@ -90,12 +92,19 @@ if(this.page > 7){
 }
 console.log(this.page)
 this.getPlanet()
+this.scrollToTop();
 }
 
 anterior(){
 this.page = this.page - 1
 console.log(this.page)
 this.getPlanet()
+this.scrollToTop();
+
+}
+
+scrollToTop() {
+  this.content.scrollToTop();
 }
   
 
