@@ -1,5 +1,4 @@
 
-import { NavController } from 'ionic-angular';
 import { Storage } from "@ionic/storage";
 import { Component, ViewChild } from '@angular/core';
 import { Content } from 'ionic-angular';
@@ -102,6 +101,14 @@ this.getPlanet()
 this.scrollToTop();
 
 }
+
+home(){
+  this.page = 1
+  console.log(this.page)
+  this.getPlanet()
+  this.scrollToTop();
+  
+  }
 
 scrollToTop() {
   this.content.scrollToTop();

@@ -6,7 +6,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="home" >
+<ion-content class="home" text-center>
   
 
   <ion-card text-center *ngFor="let item of data_planet;let i = index">
@@ -14,7 +14,7 @@
 
 
 
-    <div id="cards">
+    <div id="cards" >
 
           
    
@@ -27,21 +27,21 @@
         <table class="card__stats">
           <tbody>
             <tr>
-              <th>Population</th>
+              <th><b>Population</b></th>
               <td>{{data_planet[i].population}}</td>
             </tr>
             <tr>
-              <th>Climate</th>
+              <th><b>Climate</b></th>
               <td>{{data_planet[i].climate}}</td>
             </tr>
 
             <tr>
-              <th>Terrain</th>
+              <th><b>Terrain</b></th>
               <td>{{data_planet[i].terrain}}</td>
             </tr>
 
             <tr>
-              <th>featured In</th>
+              <th><b>featured In</b></th>
               <td>{{data_planet[i].films.length}} Films</td>
             </tr>
           </tbody>
@@ -51,8 +51,14 @@
 
   </ion-card>
 <div text-center> 
-
-  <button (click)="anterior()" class="previous round"> Previous <ion-icon name="arrow-round-back"></ion-icon></button>
+  <div *ngIf="page == 7">
+    <button (click)="home()" class="next round">Home</button>
+  </div>
+  <br>
+  <button (click)="anterior()" class="previous round"> Back <ion-icon name="arrow-round-back"></ion-icon></button>
+  <button class="next round">{{page}}</button>
   <button (click)="proximo()" class="next round" ><ion-icon name="arrow-round-forward"> </ion-icon> Next</button>
+  <br>
+  <br>
 </div>
 </ion-content>
