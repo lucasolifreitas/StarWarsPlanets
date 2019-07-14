@@ -1,64 +1,66 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-        Star Wars Planets
+      Star Wars Planets
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="home" text-center>
-  
+
 
   <ion-card text-center *ngFor="let item of data_planet;let i = index">
 
 
 
 
-    <div id="cards" >
-
-          
-   
-        <h1 class="card__name">
-          <ion-icon name="planet"></ion-icon> {{data_planet[i].name}}
-        </h1>
+    <div id="cards">
 
 
 
-        <table class="card__stats">
-          <tbody>
-            <tr>
-              <th><b>Population</b></th>
-              <td>{{data_planet[i].population}}</td>
-            </tr>
-            <tr>
-              <th><b>Climate</b></th>
-              <td>{{data_planet[i].climate}}</td>
-            </tr>
+      <h1 class="card__name">
+        <ion-icon name="planet"></ion-icon> {{data_planet[i].name}}
+      </h1>
 
-            <tr>
-              <th><b>Terrain</b></th>
-              <td>{{data_planet[i].terrain}}</td>
-            </tr>
 
-            <tr>
-              <th><b>featured In</b></th>
-              <td>{{data_planet[i].films.length}} Films</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <table class="card__stats">
+        <tbody>
+          <tr>
+            <th><b>Population</b></th>
+            <td>{{data_planet[i].population}}</td>
+          </tr>
+          <tr>
+            <th><b>Climate</b></th>
+            <td>{{data_planet[i].climate}}</td>
+          </tr>
+
+          <tr>
+            <th><b>Terrain</b></th>
+            <td>{{data_planet[i].terrain}}</td>
+          </tr>
+
+          <tr>
+            <th><b>featured In</b></th>
+            <td>{{data_planet[i].films.length}} Films</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-   
+
 
   </ion-card>
-<div text-center> 
-  <div *ngIf="page == 7">
-    <button (click)="home()" class="next round">Home</button>
+  <div text-center>
+    <div *ngIf="page != 1">
+      <button (click)="home()" class="next round">Home</button>
+    </div>
+    <br>
+    <button (click)="anterior()" class="previous round"> Back <ion-icon name="arrow-round-back"></ion-icon></button>
+    <button class="next round">{{page}}</button>
+    <button (click)="proximo()" class="next round">
+      <ion-icon name="arrow-round-forward"> </ion-icon> Next
+    </button>
+    <br>
+    <br>
   </div>
-  <br>
-  <button (click)="anterior()" class="previous round"> Back <ion-icon name="arrow-round-back"></ion-icon></button>
-  <button class="next round">{{page}}</button>
-  <button (click)="proximo()" class="next round" ><ion-icon name="arrow-round-forward"> </ion-icon> Next</button>
-  <br>
-  <br>
-</div>
 </ion-content>
